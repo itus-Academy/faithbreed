@@ -1,0 +1,160 @@
+
+<html>
+    <head>
+       <title><%= title %></title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <link rel="stylesheet" href="/css/dashboard.css">
+       <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+       <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+       
+       <link href="https://fonts.googleapis.com/css?family=Asap|Livvic&display=swap" rel="stylesheet">
+    </head> 
+       <body>
+               <div class="full-height">
+                   <div class="major">
+                       <div class="first shadow-sm p-3 mb-5 bg-white ">
+                           
+                           <center><img src="/img/core-img/real.png" width="45%"> <br><br><br>
+                           
+                           </center><hr>
+                               
+                               
+   
+                              <div class="float-left" style="margin-left:-37px;">
+                                   <ul style="list-style-type: none; ">
+                                       <a href="/admin/posts"> <li style="padding-bottom:40px;"><ion-icon name="gift" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Dashboard</li></a>
+                                   <a href="/admin/adminSermon"> <li style="padding-bottom:40px;"><ion-icon name="gift" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Sermons</li></a>
+                                   <a href="/admin/adminBlog"><li style="padding-bottom:40px; "><ion-icon name="paper" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Blog Posts</li>                                    </a>
+                                   <a href="/admin/adminEvent"><li style="padding-bottom:40px;" ><ion-icon name="logo-ionic" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Events and Programmes</li>                                </a>
+                                   <small style="font-size:12px;color:grey">OTHERS</small><br><hr>
+                                   <a href="/admin/partnership"><li style="padding-bottom:40px;" ><ion-icon name="home" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Partnership</li></a>
+                                   <a href="/admin/subscribers"><li style="padding-bottom:40px;"><ion-icon name="gift" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Subscribers</li></a>
+                                   <a href="/" class="btn btn-primary"><ion-icon name="power" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:white"></ion-icon>Go Home</a>
+                                   
+                                   
+                               </ul>
+                              </div>
+                       </div>
+                       <div class="second" >
+   
+                           <h3>All Blog Post</h3>
+   
+                         <div class="container" >
+                           <div class="row">
+                               <% for (var i = 0; i < blogs.length; i++  ){ %>
+                                  
+                               <div class="col-sm-3 shadow p-3 mb-5 bg-white rounded">
+                                   <div class="card " >
+                                       <img src="<%= blogs[i].blogImage.slice(8) %> " height="120px" class="card-img-top" alt="...">
+                                       <div class="card-body" style="padding:10px;">
+                                         <b class="card-title"> <%= blogs[i].blogTitle  %> </b>
+                                         <p class="card-text" style="font-size:12px;text-align:justify"><%= blogs[i].blogContent.slice(0,120) %></p>
+                                         <button  data-toggle="modal" data-target="#popup<%= i %>" class="btn btn-success" style="font-size:14px;padding:5px 35px">Edit</button>
+                                         <button  data-toggle="modal" data-target="#popup<%= i+ blogs.length %>" class="btn btn-danger float-right" style="font-size:14px;padding:5px 25px">Delete</button>
+                                       </div>
+                                   </div>
+                               </div>
+   
+                               <div class="modal fade" id="popup<%= i %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                   <div class="modal-dialog" role="document">
+                                     <div class="modal-content">
+                                       <div class="modal-header">
+                                         <h5 class="modal-title" id="exampleModalLongTitle">Blog Post</h5>
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                           <span aria-hidden="true">&times;</span>
+                                         </button>
+                                       </div>
+                                       <div class="modal-body">
+                                        <form  action="/blog/blogUpdates/<%= blogs[i].id %>"  method="post">
+                                                        
+                                            <div class="form-group">
+                                              <label for="exampleInputEmail1">Title</label>
+                                              <input type="text" class="form-control" required value="<%= blogs[i].blogTitle %>" name='blogTitle' aria-describedby="emailHelp" placeholder="Title">
+                                              
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="exampleInputEmail1">Author</label>
+                                              <input type="text" class="form-control" required value="<%= blogs[i].blogAuthor %>" name="blogAuthor" aria-describedby="emailHelp" placeholder="Written By">
+                                              
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="exampleInputEmail1">Date</label>
+                                              <input type="date" class="form-control"  value="<%= blogs[i].blogDate %>" required  name="blogDate" aria-describedby="emailHelp" placeholder="Date">
+                                              
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1" >Category</label>
+                                                <select name="blogCategory" required value="<%= blogs[i].blogCategory %>" class="browser-default custom-select">
+                                                    <option selected> </option>
+                                                    <option value="supernatural">Supernatural Culture</option>
+                                                    <option value="leadership">Leadership</option>
+                                                    <option value="growth">Growth</option>
+                                                </select>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Content</label>
+                                                <textarea type="text" class="form-control" value="<%= blogs[i].blogContent %>" name="blogContent" aria-describedby="emailHelp" placeholder="Enter the content here" required></textarea>
+                                                
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                          </form>
+                                       </div>
+                                       <div class="modal-footer">
+                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                         
+                                       </div>
+                                     </div>
+                                   </div>
+                                 </div>
+
+                                 <div class="modal fade" id="popup<%= i+ blogs.length %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content" style="padding:5%">
+                                      <h4 style="font-weight:bold; text-align:center">Do you want to Delete this post ?</h4>
+                                     <center> 
+                                          <form action="/blog/blogDelete/<%= blogs[i].id %>" method="post">
+                                                <input type="hidden"><br<br><br>
+                                                <button class="btn btn-danger"  style="padding:10px 30px;" type="submit">Yes</button>  
+                                          </form>
+                                    </center>
+                                    </div>
+                                  </div>
+                                </div>
+   
+   
+                               <% } %>
+   
+   
+   
+
+                            
+                              
+   
+   
+                           
+   
+                           </div>
+                         </div>
+                           
+                   </div>
+               </div>
+           
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      
+       <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-storage.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
+       <script src="js/auth.js"></script>
+       <script  src="js/blog.js"></script>
+       <script src="js/event.js"></script>
+       <script src="js/sermon.js"></script>
+   
+      
+     </body>
+   </html>    

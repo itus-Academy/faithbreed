@@ -1,0 +1,30 @@
+{
+  "name": "faithbreed",
+  "version": "1.0.0",
+  "description": "this is the official website of Faithbreed",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "kolawole oluwasegun",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcrypt-nodejs": "0.0.3",
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.4",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "uuid": "^7.0.2"
+  }
+}

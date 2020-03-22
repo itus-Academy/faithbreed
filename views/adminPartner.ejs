@@ -1,0 +1,91 @@
+
+<html>
+    <head>
+       <title><%= title %></title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <link rel="stylesheet" href="/css/dashboard.css">
+       <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+       <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+       
+       <link href="https://fonts.googleapis.com/css?family=Asap|Livvic&display=swap" rel="stylesheet">
+    </head> 
+       <body>
+               <div class="full-height">
+                   <div class="major">
+                       <div class="first shadow-sm p-3 mb-5 bg-white ">
+                           
+                           <center><img src="/img/core-img/real.png" width="45%"> <br><br><br>
+                           
+                           </center><hr>
+                               
+                               
+   
+                              <div class="float-left" style="margin-left:-37px;">
+                                   <ul style="list-style-type: none; ">
+                                       <a href="/admin/posts"> <li style="padding-bottom:40px;"><ion-icon name="gift" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Dashboard</li></a>
+                                   <a href="/admin/adminSermon"> <li style="padding-bottom:40px;"><ion-icon name="gift" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Sermons</li></a>
+                                   <a href="/admin/adminBlog"><li style="padding-bottom:40px; "><ion-icon name="paper" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Blog Posts</li>                                    </a>
+                                   <a href="/admin/adminEvent"><li style="padding-bottom:40px;" ><ion-icon name="logo-ionic" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Events and Programmes</li>                                </a>
+                                   <small style="font-size:12px;color:grey">OTHERS</small><br><hr>
+                                   <a href="/admin/partnership"><li style="padding-bottom:40px;" ><ion-icon name="home" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Partnership</li></a>
+                                   <a href="/admin/subscribers"><li style="padding-bottom:40px;"><ion-icon name="gift" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:grey"></ion-icon>Subscribers</li></a>
+                                   <a href="/" class="btn btn-primary"><ion-icon name="power" style="margin-right: 5px;margin-bottom:-4px; font-size:19px; color:white"></ion-icon>Go Home</a>
+                                   
+                                   
+                               </ul>
+                              </div>
+                       </div>
+                       <div class="second" style="overflow-y:scroll">
+
+                        <h3>List of Partners </h3>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Full Name </th>
+                                <th scope="col">Address </th>
+                                <th scope="col">City </th>
+                                <th scope="col">Phone Number </th>
+                                <th scope="col">Email Address</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <% for (var i=0; i < partner.length; i++ ) {%>
+                              <tr>
+                               
+                                    <th scope="row"> <%= i + 1 %> </th>
+                                    <td><%= partner[i].fullname %></td>
+                                    <td><%= partner[i].address %></td>
+                                    <td><%= partner[i].city %></td>
+                                    <td><%= partner[i].telephone %></td>
+                                    <td><%= partner[i].email %></td>
+
+                                
+                              </tr>
+                              <% } %>
+                              
+
+                              
+                            
+                            </tbody>
+                          </table>
+                        </div>
+               </div>
+           
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      
+       <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-storage.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
+       <script src="js/auth.js"></script>
+       <script  src="js/blog.js"></script>
+       <script src="js/event.js"></script>
+       <script src="js/sermon.js"></script>
+   
+      
+     </body>
+   </html>    
