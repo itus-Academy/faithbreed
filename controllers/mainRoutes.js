@@ -2,11 +2,25 @@ var express = require('express');
 var router = express.Router();
 const sermon = require('../model/sermon.js') 
 const bloggers = require('../model/blog.js');
-const events = require('../model/event.js')
+const events = require('../model/event.js');
+
+
 router.get('/about', (req,res)=>{
-    res.render('about', {
-        title: 'About'
-    })
+    sermon
+        .find({})
+        .sort({'sermonDate' : -1})
+        .exec((err,sermons)=>{
+            if(err){
+                console.log(err);
+            }else{
+                res.render('about', {
+                    title: 'About',
+                    sermons:sermons
+                })
+            }
+           
+        })
+  
 });
 
 router.get('/events', (req,res)=>{
@@ -14,47 +28,75 @@ router.get('/events', (req,res)=>{
         .find({})
         .sort({'_id' : -1})
         .exec((err, events)=>{
-            res.render('events', {
-                title: 'Events',
-                events:events
-            })
+
+            sermon
+                .find({})
+                .sort({'sermonDate' : -1})
+                .exec((err,sermons)=>{
+                    res.render('events', {
+                        title: 'Events',
+                        events:events,
+                        sermons:sermons
+                    })
+                })
+          
         })
    
 });
 
 router.get('/partnership', (req,res)=>{
-    res.render('partner', {
-    title: 'partner'
-    })
+    sermon
+        .find({})
+        .sort({'sermonDate' : -1})
+        .exec((err,sermons)=>{
+            res.render('partner', {
+                title: 'partner',
+                sermons:sermons
+                })
+        })
+   
 });
 
 router.get('/blog', (req,res)=>{
     const pagination = req.query.pagination
     ? parsesInt(req.query.pagination)
-    : 4; 
+    : 20; 
     const page = req.query.page ? parseInt(req.query.page):1
     bloggers
         .find({})
         .limit(pagination)
         .sort({'_id' : -1 })
         .exec((err,bloggers)=>{
+            sermon
+                .find({})
+                .sort({'sermonDate' : -1})
+                .exec((err,sermons)=>{
+                    if(err){
+                        console.log(err)
+                    }else{
+                        res.render('blog', {
+                            title: 'Blog',
+                            blog:bloggers,
+                            sermons:sermons
+                        });
+                    }
+                })
 
-            if(err){
-                console.log(err)
-            }else{
-                res.render('Blog', {
-                    title: 'Blog',
-                    blog:bloggers
-                });
-            }
-           
         })
     })
   
 router.get('/contact', (req,res)=>{
-    res.render('contact', {
-        title:'contact'
-    } )
+
+    sermon
+        .find({})
+        .sort({'sermonDate' : -1})
+        .exec((err,sermons)=>{
+            res.render('contact', {
+                title:'contact',
+                sermons:sermons
+            } )
+        })
+   
 })
 
 
@@ -62,14 +104,14 @@ router.get('/store', (req,res)=>{
 
     const pagination = req.query.pagination
     ? parsesInt(req.query.pagination)
-    : 6; 
+    : 20; 
     const page = req.query.page ? parseInt(req.query.page):1
 
     sermon
         .find({})
         .skip((page - 1) * pagination)
         .limit(pagination)
-        .sort({'_id' : -1})
+        .sort({'sermonDate' : -1})
         .exec(function(err,sermons){
             if(err){
                 console.log(err);

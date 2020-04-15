@@ -16,8 +16,8 @@ router.get("/initialize-transaction/:sermonId", async (req, res) => {
         const transactionObject = { 
           reference: uuid(), 
           amount: sermon.sermonPrice * 100, 
-          email: "skolly150@gmail.com", 
-          callback_url: 'http://localhost:8080/'+sermonAudio, 
+          email: "faithbreed.cc@gmail.com", 
+          callback_url: 'https://faithbreed.org/'+sermonAudio, 
           channels: ['card', 'bank'],
           metadata: JSON.stringify({ sermonTitle: sermon.sermonTitle })
         };

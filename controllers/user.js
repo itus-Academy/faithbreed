@@ -22,8 +22,8 @@ router.get('/', (req,res)=>{
                 .sort({'_id' : -1})
                 .exec((err, events)=>{
                     sermon
-                        .find()
-                        .sort({'_id' : -1})
+                        .find({})
+                        .sort({'sermonDate' : -1})
                         .exec((err,sermons)=>{
                             if(err){
                                 console.log(err)

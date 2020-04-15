@@ -29,7 +29,11 @@ const upload = multer({
 router.post('/blogPost', (req,res,next)=>{
     // upload2.single('myImage2')
     //  res.send(req.file.filename);
+    
+   
     upload(req,res,(err)=>{
+        var formattedText = req.body.blogContent
+        formattedText = formattedText.replace(/\n\r?/g, '<br />')
         if(err){
             res.send(err);
         }else{
@@ -45,7 +49,8 @@ router.post('/blogPost', (req,res,next)=>{
                 blogAuthor : req.body.blogAuthor,
                 blogDate : req.body.blogDate,
                 blogCategory : req.body.blogCategory,
-                blogContent: req.body.blogContent,
+                blogExcerpt:req.body.blogExcerpt,
+                blogContent: formattedText,
                 blogImage : req.files.blogImage[0].destination + '/' +  req.files.blogImage[0].filename
             }).save((err,blogger)=>{
                 if(err) return console.error(err);
@@ -91,6 +96,9 @@ router.get('/supernatural', (req,res,next)=>{
         .limit(pagination)
         .sort({'_id' : -1 })
         .exec((err, blogger)=>{
+            sermon
+                .find({})
+                .sort
             console.log(blogger);
             if(err){
                 console.log(err)
@@ -110,6 +118,7 @@ router.post('/blogUpdates/:id', (req,res)=>{
     let items = {}
     
     items.blogTitle =  req.body.blogTitle,
+    items.blogExcerpt = req.body.blogExcerpt
     items.blogContent = req.body.blogContent,
     items.blogDate = req.body.blogDate
     

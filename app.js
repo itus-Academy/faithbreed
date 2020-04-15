@@ -24,14 +24,17 @@ app.use(session({
      store: new MongoStore({url:secret.database, autoReconnect:true})
 }));
 
+
 app.use(flash());
 app.use(passport.initialize());
-app.use(passport.session())
+app.use(passport.session());
+
 
 app.use(function(req,res,next){
   res.locals.user = req.user;
   next(); 
 });
+
 
 
 
@@ -46,7 +49,7 @@ db.once('open', function() {
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}));
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views')); 
 app.use('/', express.static('public'));
 app.set('view engine', 'ejs');
 
@@ -67,6 +70,7 @@ app.use('/', updatePostRoute);
 
 var nodemailer = require('./controllers/nodemailer.js');
 app.use('/nodemailer', nodemailer);
+
 
 var blogRoute = require('./controllers/blogRoute.js');
 app.use('/blog', blogRoute);

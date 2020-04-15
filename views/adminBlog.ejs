@@ -8,6 +8,16 @@
        <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
        
        <link href="https://fonts.googleapis.com/css?family=Asap|Livvic&display=swap" rel="stylesheet">
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163514247-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-163514247-1');
+    </script>
+
     </head> 
        <body>
                <div class="full-height">
@@ -48,7 +58,7 @@
                                        <img src="<%= blogs[i].blogImage.slice(8) %> " height="120px" class="card-img-top" alt="...">
                                        <div class="card-body" style="padding:10px;">
                                          <b class="card-title"> <%= blogs[i].blogTitle  %> </b>
-                                         <p class="card-text" style="font-size:12px;text-align:justify"><%= blogs[i].blogContent.slice(0,120) %></p>
+                                         <p class="card-text" style="font-size:12px;text-align:justify"><%= blogs[i].blogExcerpt.slice(0,60) %></p>
                                          <button  data-toggle="modal" data-target="#popup<%= i %>" class="btn btn-success" style="font-size:14px;padding:5px 35px">Edit</button>
                                          <button  data-toggle="modal" data-target="#popup<%= i+ blogs.length %>" class="btn btn-danger float-right" style="font-size:14px;padding:5px 25px">Delete</button>
                                        </div>
@@ -75,6 +85,11 @@
                                             <div class="form-group">
                                               <label for="exampleInputEmail1">Author</label>
                                               <input type="text" class="form-control" required value="<%= blogs[i].blogAuthor %>" name="blogAuthor" aria-describedby="emailHelp" placeholder="Written By">
+                                              
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="exampleInputEmail1">Excerpt</label>
+                                              <input type="text" class="form-control" required value="<%= blogs[i].blogExcerpt %>" name="blogExcerpt" aria-describedby="emailHelp" placeholder="Excerpt">
                                               
                                             </div>
                                             <div class="form-group">

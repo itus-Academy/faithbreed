@@ -14,6 +14,8 @@ var BlogSchema = new Schema({
 
     blogCategory : String,
 
+    blogExcerpt : String,
+
     blogContent: String,
 
     blogImage : String

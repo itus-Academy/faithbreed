@@ -46,7 +46,7 @@ router.get('/adminsermon', (req,res)=>{
   if(req.user){
     sermon
     .find({})
-    .sort({'_id' : -1})
+    .sort({'sermonDate' : -1})
     .exec((err,sermon)=>{
         if(err){
             console.log(err)

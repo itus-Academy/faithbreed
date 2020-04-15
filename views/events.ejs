@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Pneuma Life City Church</title>
+    <title>Pneuma Life City Church | <%= title %></title>
 
     <!-- Favicon -->
     <link rel="icon" href="/img/new/logochurch.png">
@@ -19,6 +19,15 @@
     <link href="https://fonts.googleapis.com/Open+Sanscss?family=Roboto|Source+Sans+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style2.css">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163514247-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163514247-1');
+</script>
 
 </head>
 
@@ -203,13 +212,13 @@
                                 <!-- Content -->
                                 <div class="upcoming-events-content d-flex flex-wrap align-items-center">
                                     <div class="events-text">
-                                        <h4><%= events[i].eventTitle %></h4>
+                                        <h4><%= events[i].eventName %></h4>
                                         <div class="events-meta">
-                                            <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><%= events[i].eventDate.toString().slice(0,16) %></a>
-                                        
-                                            <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><%= events[i].eventContent %></a>
+                                            <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><%= events[i].eventDate.toString().slice(0,17) %></a>
+                                            <a href="#" style="font-size:12px"><i class="fa fa-clock-o" aria-hidden="true" ></i> 5:30PM Daily</a>
+                                            <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>Faithbreed Auditorium, Adjacent Anchorite school, FUTA Junction</a>
                                         </div>
-                                        <p>${guide.programmeContent}</p>
+                                        <p><%= events[i].eventContent %></p>
                                     
                                     </div>
                                 
@@ -238,171 +247,179 @@
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bb hide_phone">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <p><b>Quick Links</b></p>
-                        <div class="row">
-                        <div class="col-sm-12">
-                                <nav class="footer-menu" style="margin-top:-20px;" >
-                                    <ul>
-                                        <li a href="/"><i class="fa fa-angle-double-right" style="font-size:14px;line-height:40px;" aria-hidden="true"></i> Home</a></li>
-                                        <li><a href="/events"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Event</a></li>
-                                        <li><a href="/#about" ><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> About Us</a></li>
-                                        <li><a href="/#gallery"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Gallery</a></li>
-                                        <li><a href="/store"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Teachings</a></li>
-                                </nav>
-                            </div>
-                           
-    
-                          
-                        </div>
-                        
-                    </div>
-                    <div class="col-sm-3">
-                        <p><b>Get This</b></p>
-                        <div class="single-latest-news" style="margin-top:-20px">
-                            <a href="sermons/enteringintogodsrest.mp3" style="font-size:14px; line-height: 40px;">Entering Into God's Rest</a>
-                            <p style="font-size:14px;line-height: 40px;"> <i>By pastor Dafe Richard</i></p>
-                        </div>
-    
-    
-    
-                        <!-- Single Latest News -->
-                        <div class="single-latest-news">
-                            <a href="sermons/Intentionalliving.mp3" style="font-size:14px; line-height: 40px;"> Intentional living</a>
-                            <p style="font-size:14px;line-height: 40px;"> <i>By Pastor Dafe Richard</i></p>
-                        </div>
-    
-                    </div>
-                    <div class="col-sm-3">
-                        <p><b>Contact Us</b></p>
-                        <div class="contact-information" style="margin-top:-20px;">
-                            <!-- <p><i class="fa fa-map-marker" aria-hidden="true"></i>FAITHBREED AUDITORIUM, ADJACENT ANCHORITE SCHOOL, FUTA JUNCTION</p> -->
-                            <a href="callto:07061658590" style="font-size:14px;line-height: 50px;"><i class="fa fa-phone" style="color:#CA3730; margin-right:10px; " aria-hidden="true"></i>(+234)-706-1658-590</a><br>
-                            <a href="mailto:info@faithbreed.org" style="font-size:14px;line-height: 50px;"><i class="fa fa-envelope" style="color:#CA3730; margin-right:10px"  aria-hidden="true"></i>info@faithbreed.org</a>
-                            <p style="font-size:14px;line-height: 50px;" ><i class="fa fa-clock-o" style="font-size:14px;color:#CA3730;margin-right:10px;line-height: 40px;" aria-hidden="true"></i> Mon - Sun: 09.00am - 4.00pm</p>
-                        
-                        </div>
-                    </div>
-                    <div class="col-sm-3"  >
-                            <p><b>Address </b></p>
-                        <div style="margin-top:-10px;">
-                                 <p style="font-size:14px;line-height:25px;"> Faithbreed Auditiorium, Adjacent Anchorite School, FUTA Junction </p>
-                        </div>
-    
-                    </div>
-    
-                   
-            </div>
-        </div>
-            <div class="row" style="background-color:#120606;width:101.5%; padding:20px 0px" >
-                    <div class="col-sm-12" style="text-align:center">
-                       <i style="line-height:30px;"> Now thanks be unto God who always causeth us to triumph and maketh manifest the savour of his knowledge by us in every place... [ 2Corithians 2 vs 14 ]</i>
-                       <div class="footer-social-icon">
-                            <a href="https://web.facebook.com/faithbreed.everywhere?_rdc=1&_rdr" style="padding:0px 10px;"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="https://twitter.com/pneumalife_cc"><i class="fa fa-twitter" style="padding:0px 10px;" aria-hidden="true"></i></a>
-                            <a href="mailto:info@faithbreed.org"><i class="fa fa-envelope" style="padding:0px 10px;" aria-hidden="true"></i></a>
-                            <a href="https://www.instagram.com/p/Bx4mOHHHYYC/?igshid=18xjn6j11xr0b"><i style="padding:0px 10px;" class="fa fa-instagram" aria-hidden="true"></i></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <p><b>Quick Links</b></p>
+                    <div class="row">
+                    <div class="col-sm-12">
+                            <nav class="footer-menu" style="margin-top:-20px;" >
+                                <ul>
+                                    <li a href="/"><i class="fa fa-angle-double-right" style="font-size:14px;line-height:40px;" aria-hidden="true"></i> Home</a></li>
+                                    <li><a href="/events class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Event</a></li>
+                                    <li><a href="/#about" ><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> About Us</a></li>
+                                    <li><a href="/#gallery"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Gallery</a></li>
+                                    <li><a href="/store"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Teachings</a></li>
+                            </nav>
                         </div>
                        
-                        
-                            </div>
-                     </button>
+
+                      
                     </div>
-           
-    
-        </footer>
-        <footer class="hide_main footerphone">
-            <div class="">
-                <div>
-                        <button id="button1" class="">Quick Links
-                                <div class="float-right" id="linkplus1" style="padding-right:20px"> <i class="fa fa-plus"></i></div>
-                                <div class="float-right" id="linkminus1" style="padding-right:20px"> <i class="fa fa-minus"></i></div>
-                            <br>
-                                        <div class="col-sm-12" id="space1">
-                                                <nav class="footer-menu" style="margin-top:0px;margin-left:-10px;" >
-                                                    <ul>
-                                                        <li a href="/"><i class="fa fa-angle-double-right" style="font-size:14px;line-height:40px;" aria-hidden="true"></i> Home</a></li>
-                                                        <li><a href="/events"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Event</a></li>
-                                                        <li><a href="/#about" ><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> About Us</a></li>
-                                                        <li><a href="/#gallery"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Gallery</a></li>
-                                                        <li><a href="/store"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Teachings</a></li>
-                                                </nav>
-                                        </div>
-                        </button>
-                      
-                </div>
-                <div>
-                        <button id="button2" class="">Get This
-                                <div class="float-right" id="linkplus2" style="padding-right:20px"> <i class="fa fa-plus"></i></div>
-                                <div class="float-right" id="linkminus2" style="padding-right:20px"> <i class="fa fa-minus"></i></div>
-                                <div id="space2" style="font-weight:lighter">
-                                        
-                                        <div class="single-latest-news" style="margin-top:20px">
-                                            <a href="sermons/enteringintogodsrest.mp3" style="font-size:14px; line-height: 40px;">Entering Into God's Rest</a>
-                                            <p style="font-size:14px;line-height: 40px;color:white"> <i>By pastor Dafe Richard</i></p>
-                                        </div>
                     
-                                        <!-- Single Latest News -->
-                                        <div class="single-latest-news">
-                                            <a href="sermons/Intentionalliving.mp3" style="font-size:14px; line-height: 40px;"> Intentional living</a>
-                                            <p style="font-size:14px;line-height: 40px;color:white"> <i>By Pastor Dafe Richard</i></p>
-                                        </div>
-                                </div>
-                        </button>
-                      
                 </div>
-                <div>
-                        <button id="button3" class="">Contact Us
-                                <div class="float-right" id="linkplus3" style="padding-right:20px"> <i class="fa fa-plus"></i></div>
-                                <div class="float-right" id="linkminus3" style="padding-right:20px"> <i class="fa fa-minus"></i></div>
-                                <div id="space3" style="font-weight:lighter">
-                                        <div class="contact-information" >
-                                                <!-- <p><i class="fa fa-map-marker" aria-hidden="true"></i>FAITHBREED AUDITORIUM, ADJACENT ANCHORITE SCHOOL, FUTA JUNCTION</p> -->
-                                                <a href="callto:07061658590" style="font-size:14px;line-height: 50px;"><i class="fa fa-phone" style="color:#CA3730; margin-right:10px; " aria-hidden="true"></i>(+234)-706-1658-590</a><br>
-                                                <a href="mailto:info@faithbreed.org" style="font-size:14px;line-height: 50px;"><i class="fa fa-envelope" style="color:#CA3730; margin-right:10px"  aria-hidden="true"></i>info@faithbreed.org</a>
-                                                <p style="font-size:14px;line-height: 50px;color:white" ><i class="fa fa-clock-o" style="font-size:14px;color:#CA3730;margin-right:10px;line-height: 40px;" aria-hidden="true"></i><span style="color:white"> Mon - Sun: 09.00am - 4.00pm</span></p>
-                                            
-                                        </div>
-                                </div>
-                        </button>
-                      
+                <div class="col-sm-3">
+                    <p><b>Get This</b></p>
+
+                    <% for(var i = 0; i < 2; i++) { %>
+
+                        <div class="single-latest-news" style="margin-top:-20px">
+                            <a href="sermon/sermonPost/<%= sermons[i].id %>"  style="font-size:14px; line-height: 40px;"><%= sermons[i].sermonTitle %></a>
+                            <p style="font-size:14px;line-height: 40px;"> <i>By <%= sermons[i].sermonTeacher %> </i></p>
+                        </div>
+
+                    <% } %>
+
+
+
+                    <!-- Single Latest News -->
+                    <!-- <div class="single-latest-news">
+                        <a href="sermons/Intentionalliving.mp3" style="font-size:14px; line-height: 40px;"> Intentional living</a>
+                        <p style="font-size:14px;line-height: 40px;"> <i>By Pastor Dafe Richard</i></p>
+                    </div> -->
+
                 </div>
-                <div>
-                        <button id="button4" class="">Address
-                                <div class="float-right" id="linkplus4" style="padding-right:20px"> <i class="fa fa-plus"></i></div>
-                                <div class="float-right" id="linkminus4" style="padding-right:20px"> <i class="fa fa-minus"></i></div>
-                                <div id="space4" style="font-weight:lighter">
-                                        <div style="color:white" style="padding-top:80px;" ><br>
-                                                <p style="font-size:14px; color:white"> Faithbreed Auditiorium, Adjacent Anchorite School, FUTA Junction </p>
-                                       </div>
-                                </div>
-                        </button>
-                      
+                <div class="col-sm-3">
+                    <p><b>Contact Us</b></p>
+                    <div class="contact-information" style="margin-top:-20px;">
+                        <!-- <p><i class="fa fa-map-marker" aria-hidden="true"></i>FAITHBREED AUDITORIUM, ADJACENT ANCHORITE SCHOOL, FUTA JUNCTION</p> -->
+                        <a href="callto:07061658590" style="font-size:14px;line-height: 50px;"><i class="fa fa-phone" style="color:#CA3730; margin-right:10px; " aria-hidden="true"></i>(+234)-706-1658-590</a><br>
+                        <a href="mailto:info@faithbreed.org" style="font-size:14px;line-height: 50px;"><i class="fa fa-envelope" style="color:#CA3730; margin-right:10px"  aria-hidden="true"></i>info@faithbreed.org</a>
+                        <p style="font-size:14px;line-height: 50px;" ><i class="fa fa-clock-o" style="font-size:14px;color:#CA3730;margin-right:10px;line-height: 40px;" aria-hidden="true"></i> Mon - Sun: 09.00am - 4.00pm</p>
+                    
+                    </div>
                 </div>
+
+                <div class="col-sm-3"  >
+                        <p><b>Address </b></p>
+                    <div style="margin-top:-10px;">
+                             <p style="font-size:14px;line-height:25px;"> Faithbreed Auditiorium, Adjacent Anchorite School, FUTA Junction </p>
+                    </div>
+
+                </div>
+
                
-             
-                
+        </div>
+    </div>
+        <div class="row" style="background-color:#120606;width:101.5%; padding:20px 0px" >
+                <div class="col-sm-12" style="text-align:center">
+                   <i style="line-height:30px;"> Now thanks be unto God, which always causeth us to triumph in Christ, and maketh manifest the savour of his knowledge by us in in every place.... [ 2Corithians 2 vs 14 ]</i>
+                   <div class="footer-social-icon">
+                        <a href="https://web.facebook.com/faithbreed.everywhere?_rdc=1&_rdr" style="padding:0px 10px;"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/pneumalife_cc"><i class="fa fa-twitter" style="padding:0px 10px;" aria-hidden="true"></i></a>
+                        <a href="mailto:info@faithbreed.org"><i class="fa fa-envelope" style="padding:0px 10px;" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/p/Bx4mOHHHYYC/?igshid=18xjn6j11xr0b"><i style="padding:0px 10px;" class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                   
+                    
+                        </div>
+                 </button>
+                </div>
+       
+
+    </footer>
+    <footer class="hide_main footerphone">
+        <div class="">
+            <div>
+                    <button id="button1" class="">Quick Links
+                            <div class="float-right" id="linkplus1" style="padding-right:20px"> <i class="fa fa-plus"></i></div>
+                            <div class="float-right" id="linkminus1" style="padding-right:20px"> <i class="fa fa-minus"></i></div>
+                        <br>
+                                    <div class="col-sm-12" id="space1">
+                                            <nav class="footer-menu" style="margin-top:0px;margin-left:-10px;" >
+                                                <ul>
+                                                    <li a href="/"><i class="fa fa-angle-double-right" style="font-size:14px;line-height:40px;" aria-hidden="true"></i> Home</a></li>
+                                                    <li><a href="/events class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Event</a></li>
+                                                    <li><a href="/#about" ><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> About Us</a></li>
+                                                    <li><a href="/#gallery"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Gallery</a></li>
+                                                    <li><a href="/store"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Teachings</a></li>
+                                            </nav>
+                                    </div>
+                    </button>
+                  
             </div>
             <div>
-                <button >
-                       <div style="width: 100%;padding:0px 20px;">
-                            <p style="color:white;text-align:center;font-weight:lighter"> "Now Thanks be Unto God which always causeth us to triumph through Christ and Makest manifest the servour of his knowledge by us in every place"</p>
-                           <center>
-                                <div class="col-12 col-md-6">
-                                        <div class="footer-social-icon">
-                                            <a href="https://web.facebook.com/faithbreed.everywhere?_rdc=1&_rdr" style="padding:0px 10px;"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                            <a href="https://twitter.com/pneumalife_cc"><i class="fa fa-twitter" style="padding:0px 10px;" aria-hidden="true"></i></a>
-                                            <a href="mailto:info@faithbreed.org"><i class="fa fa-envelope" style="padding:0px 10px;" aria-hidden="true"></i></a>
-                                            <a href="https://www.instagram.com/p/Bx4mOHHHYYC/?igshid=18xjn6j11xr0b"><i style="padding:0px 10px;" class="fa fa-instagram" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                           </center>
-                       </div>
-                </button>
+                    <button id="button2" class="">Get This
+                            <div class="float-right" id="linkplus2" style="padding-right:20px"> <i class="fa fa-plus"></i></div>
+                            <div class="float-right" id="linkminus2" style="padding-right:20px"> <i class="fa fa-minus"></i></div>
+                            <div id="space2" style="font-weight:lighter">
+                                    
+                                <% for(var i = 0; i < 2; i++) { %>
+
+                        <div class="single-latest-news" style="margin-top:-20px">
+                            <a href="sermon/sermonPost/<%= sermons[i].id %>" style="font-size:14px; line-height: 40px;"><%= sermons[i].sermonTitle %></a>
+                            <p style="font-size:14px;line-height: 40px;"> <i>By <%= sermons[i].sermonTeacher %> </i></p>
+                        </div>
+
+                    <% } %>
+                
+                                    <!-- Single Latest News -->
+                                  
+                            </div>
+                    </button>
+                  
             </div>
-        </footer>
+            <div>
+                    <button id="button3" class="">Contact Us
+                            <div class="float-right" id="linkplus3" style="padding-right:20px"> <i class="fa fa-plus"></i></div>
+                            <div class="float-right" id="linkminus3" style="padding-right:20px"> <i class="fa fa-minus"></i></div>
+                            <div id="space3" style="font-weight:lighter">
+                                    <div class="contact-information" >
+                                            <!-- <p><i class="fa fa-map-marker" aria-hidden="true"></i>FAITHBREED AUDITORIUM, ADJACENT ANCHORITE SCHOOL, FUTA JUNCTION</p> -->
+                                            <a href="callto:07061658590" style="font-size:14px;line-height: 50px;"><i class="fa fa-phone" style="color:#CA3730; margin-right:10px; " aria-hidden="true"></i>(+234)-706-1658-590</a><br>
+                                            <a href="mailto:info@faithbreed.org" style="font-size:14px;line-height: 50px;"><i class="fa fa-envelope" style="color:#CA3730; margin-right:10px"  aria-hidden="true"></i>info@faithbreed.org</a>
+                                            <p style="font-size:14px;line-height: 50px;color:white" ><i class="fa fa-clock-o" style="font-size:14px;color:#CA3730;margin-right:10px;line-height: 40px;" aria-hidden="true"></i><span style="color:white"> Mon - Sun: 09.00am - 4.00pm</span></p>
+                                        
+                                    </div>
+                            </div>
+                    </button>
+                  
+            </div>
+            <div>
+                    <button id="button4" class="">Address
+                            <div class="float-right" id="linkplus4" style="padding-right:20px"> <i class="fa fa-plus"></i></div>
+                            <div class="float-right" id="linkminus4" style="padding-right:20px"> <i class="fa fa-minus"></i></div>
+                            <div id="space4" style="font-weight:lighter">
+                                    <div style="color:white" style="padding-top:80px;" ><br>
+                                            <p style="font-size:14px; color:white"> Faithbreed Auditiorium, Adjacent Anchorite School, FUTA Junction </p>
+                                   </div>
+                            </div>
+                    </button>
+                  
+            </div>
+           
+         
+            
+        </div>
+        <div>
+            <button >
+                   <div style="width: 100%;padding:0px 20px;">
+                        <p style="color:white;text-align:center;font-weight:lighter"> "Now thanks be unto God, which always causeth us to triumph in Christ, and maketh manifest the savour of his knowledge by us in every place."</p>
+                       <center>
+                            <div class="col-12 col-md-6">
+                                    <div class="footer-social-icon">
+                                        <a href="https://web.facebook.com/faithbreed.everywhere?_rdc=1&_rdr" style="padding:0px 10px;"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                        <a href="https://twitter.com/pneumalife_cc"><i class="fa fa-twitter" style="padding:0px 10px;" aria-hidden="true"></i></a>
+                                        <a href="mailto:info@faithbreed.org"><i class="fa fa-envelope" style="padding:0px 10px;" aria-hidden="true"></i></a>
+                                        <a href="https://www.instagram.com/p/Bx4mOHHHYYC/?igshid=18xjn6j11xr0b"><i style="padding:0px 10px;" class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                       </center>
+                   </div>
+            </button>
+        </div>
+    </footer>
+  
       
       
         <!-- ##### Footer Area End ##### -->
