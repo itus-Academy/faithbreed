@@ -99,6 +99,33 @@ router.get('/contact', (req,res)=>{
    
 })
 
+router.get('/firsttime', (req,res)=>{
+    sermon
+        .find({})
+        .sort({'sermonDate' : -1})
+        .exec((err,sermons)=>{
+            res.render('firstTimer', {
+                title: 'First Timer'
+            })
+        })
+   
+})
+
+router.get('/newlife', (req,res)=>{
+    sermon
+    .find({})
+    .sort({'sermonDate' : -1})
+    .exec((err,sermons)=>{
+        res.render('lifeOfChrist', {
+            title: 'life Of Christ'
+        })
+    })
+       
+})
+   
+
+
+
 
 router.get('/store', (req,res)=>{
 

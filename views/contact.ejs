@@ -161,31 +161,7 @@
             </div>
             <!-- ***** Navbar Area ***** -->
         </header>
-    <!-- ##### Header Area End ##### -->
-
-    <!-- ##### Header Area End ##### -->
-
-    <!-- ##### Breadcrumb Area Start ##### -->
-    <!-- <div class="breadcrumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Contact</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- ##### Breadcrumb Area End ##### -->
-
-    <!-- ##### Google Maps Start ##### -->
-    <!-- <div class="map-area mt-1">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5713932353005!2d5.157856414775029!3d7.289507394738694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10478fa65332e4fb%3A0x83f2c886fca544e6!2sFaithbreed%20Auditorium!5e0!3m2!1sen!2sng!4v1581522371388!5m2!1sen!2sng" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>    
-    </div> -->
+    
 
     <div class="row">
         <img src="img/slide/contact us.jpg" width="100%">
@@ -283,6 +259,284 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+
+            </div>
+            <div class="col-sm-3">
+                <button class="btn crose-btn mt-15" data-toggle="modal" data-target="#exampleModal">New to PNEUMALIFE?</button>
+            </div>
+            <div class="col-sm-3">
+                <button class="btn crose-btn mt-15" data-toggle="modal" data-target="#exampleModal2">RECEIVED THE LIFE OF CHRIST?</button>
+            </div>
+            <div class="col-sm-3">
+
+            </div>
+
+
+           
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="text-align:center">RECEIVED THE LIFE OF CHRIST?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newToFaithbreed" method="post">
+
+                           
+                           
+
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Name</label>
+                              <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                              <small id="name" class="form-text text-muted">We'll never share your information with anyone else.</small>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Birthdate</label>
+                              <input type="text" name="birthdate" class="form-control" id="exampleInputPassword1" placeholder="Birthdate">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Gender</label>
+                                <select class="form-control">
+                                    <option></option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Email</label>
+                                <input type="email" name="name" class="form-control" id="exampleInputPassword1" placeholder="Email Address">
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Phone</label>
+                                <input type="text" name="phone" class="form-control" id="exampleInputPassword1" placeholder="Phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Country</label>
+                                <input type="text" name="country" class="form-control" id="exampleInputPassword1" placeholder="Country">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">State</label>
+                                <input type="text" name="state" class="form-control" id="exampleInputPassword1" placeholder="State">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1"><b>What platform are you joining us from?</b></label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"  value="facebook" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                      Facebook 
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"  value="youtube">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                      YouTube
+                                    </label>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1"><b>Preferred Method of contact</b></label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadiosi" id="exampleRadios1" value="email" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                      Email
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadiosi" id="exampleRadios2" value="phone">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                      Phone
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadiosi" id="exampleRadios2" value="whatsapp">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                      Whatsapp
+                                    </label>
+                                  </div>
+                            </div>
+
+                
+
+                           <div class="form-group">
+ 
+                              <div class=" form-check form-check">
+                                <label style="position:relative;left:-20px;" ><b>How can we Help you?</b> </label><br>
+                                <input class="form-check-input" name="questions" type="checkbox" id="inlineCheckbox1" value="guest">
+                                <label class="form-check-label"  for="inlineCheckbox1">i am a first time guest</label>
+                              </div>
+                              <div class="form-check form-check">
+                                <input class="form-check-input" name="questions" type="checkbox" id="inlineCheckbox2" value="volunteering">
+                                <label class="form-check-label" for="inlineCheckbox2"> i am interested in learning about vounteering</label>
+                              </div>
+                              <div class="form-check form-check">
+                                <input class="form-check-input"  name="questions" type="checkbox" id="inlineCheckbox2" value="messages">
+                                <label class="form-check-label" for="inlineCheckbox2"> i am interested in getting more of Pastor's messages</label>
+                              </div>
+                              <div class="form-check form-check">
+                                <input class="form-check-input" name="questions" type="checkbox" id="inlineCheckbox2" value="follower">
+                                <label class="form-check-label" for="inlineCheckbox2"> i am interested in learning how to become a follower of Jesus</label>
+                              </div>
+                              <div class="form-check form-check">
+                                <input class="form-check-input" name="questions" type="checkbox" id="inlineCheckbox2" value="christ">
+                                <label class="form-check-label" for="inlineCheckbox2"> i just received the Life of Christ</label>
+                              </div>
+                              
+                           </div>
+                             
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                            <p style="text-align:center;font-size:13px">
+                                <br>
+                                Every information received here remains confidential and is held in trust by PNEUMALIFE CITY CHURCCH
+                            </p>
+                          </form>
+
+
+                    </div>
+                 
+                </div>
+                </div>
+            </div>
+
+
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="text-align:center">RECEIVED THE LIFE OF CHRIST?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newToFaithbreed" method="post">
+
+                       
+                       
+                            <p style="font-size:13px;text-align:justify">
+                                Hello and welcome to our family! We are so happy that you just got saved and gave your life to Christ. You may be asking yourself, “What’s next?<br><br>
+                                <b>1. Understand what Salvation means</b><br>
+                                • We are in need of a Savior. (Romans 3:23)<br>
+                                • Our sin separates us from God (Romans 6:23)<br>
+                                • Jesus died for us to pay the penalty of death for our sins. (Romans 5:8)<br>
+                                • God forgives and gives salvation to everyone who puts their faith in Him. (Romans 10:9-10)<br>
+                                John 3:15-17 says, "...so that those who truly believe in him will not perish but be given eternal life. For this is how much God loved the world—he gave his one and only, unique Son as a gift. So now everyone who believes in him will never perish but experience everlasting life.
+                                <br>“God did not send his Son into the world to judge and condemn the world, but to be its Savior and rescue it!<br><br>
+    
+                                <b>2. Find your church home </b><br>
+                                We celebrate with heaven today that you have become a Christian. It doesn’t matter who you are, what you’ve done, or what background you’ve come from, Jesus makes it very clear that he loves you and wants you to be saved through Him.
+                           <br>
+                           We are so happy that you are a part of our Community. Your next step if you feel spiritually fed by this church would be to become a member of PNEUMA LIFE CITY CHURCH.
+                            </p>
+    
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Date</label>
+                              <input type="date" name="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Date">
+                              <small  class="form-text text-muted">We'll never share your information with anyone else.</small>
+                            </div>
+    
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Name</label>
+                              <input type="text" name="name" class="form-control" id="exampleInputPassword1" placeholder="Name">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Gender</label>
+                                <select class="form-control">
+                                    <option></option>
+                                    <option value="male">Male</option>
+                                    <option value="female" >Female</option>
+                                </select>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">BirthDate</label>
+                                <input type="text" name="birthdate" class="form-control" id="exampleInputPassword1" placeholder="BirthDate">
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Phone</label>
+                                <input type="text" name="phone" class="form-control" id="exampleInputPassword1" placeholder="Phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Email</label>
+                                <input type="email" name="email" class="form-control" id="exampleInputPassword1" placeholder="email">
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="exampleInputPassword1"><b>Please Select which applies to you</b></label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"  value="salvation" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                      Salvation 
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"  value="rededication">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                      Rededication
+                                    </label>
+                                  </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="exampleInputPassword1"><b>Where did you pray the salvation prayer with us? </b></label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadiosi" id="exampleRadios1" value="auditorium" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        FAITHBREED AUDITORIUM
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadiosi" id="exampleRadios2" value="facebook">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        FAITHBREED Facebook
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadiosi" id="exampleRadios2" value="youtube">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                     FAITHBREED GLOBAL YouTube
+                                    </label>
+                                  </div>
+                            </div>
+    
+                            <p style="text-align:center;font-size:13px">
+                                <br>
+                                Every information received here remains confidential and is held in trust by PNEUMALIFE CITY CHURCCH
+                            </p>
+    
+                
+    
+                        
+                             
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+
+
+                    </div>
+                 
+                </div>
+                </div>
+            </div>
+            
+        </div><br><br>
+    </div>
+
     <div class="map-area mt-1">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5713932353005!2d5.157856414775029!3d7.289507394738694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10478fa65332e4fb%3A0x83f2c886fca544e6!2sFaithbreed%20Auditorium!5e0!3m2!1sen!2sng!4v1581522371388!5m2!1sen!2sng" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>    </div>
 
@@ -301,7 +555,7 @@
                             <nav class="footer-menu" style="margin-top:-20px;" >
                                 <ul>
                                     <li a href="/"><i class="fa fa-angle-double-right" style="font-size:14px;line-height:40px;" aria-hidden="true"></i> Home</a></li>
-                                    <li><a href="/events class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Event</a></li>
+                                    <li><a href="/events"  class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Event</a></li>
                                     <li><a href="/#about" ><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> About Us</a></li>
                                     <li><a href="/#gallery"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Gallery</a></li>
                                     <li><a href="/store"><i class="fa fa-angle-double-right"  style="line-height:40px;" aria-hidden="true"></i> Teachings</a></li>
