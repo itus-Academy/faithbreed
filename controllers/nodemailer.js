@@ -17,11 +17,11 @@ router.post('/', (req,res)=>{
     `;
 
     let transporter = nodemailer.createTransport({
-        host: "mail.faithbreed.org",
+        host: "mail.privateemail.com",
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-          user: 'contact@faithbreed.org', // generated ethereal user
+          user: 'info@faithbreed.org', // generated ethereal user
           pass: 'Kingdombreed_01' // generated ethereal password
         },
 
@@ -33,8 +33,8 @@ router.post('/', (req,res)=>{
       // send mail with defined transport object
       let infos =({
            
-        from: '"Faitbreed.org 👻" <contact@faithbreed.org>', // sender address
-        to: "skolly150@gmail.com, contact@faithbreed.org", // list of receivers
+        from: '"Faitbreed.org 👻" <info@faithbreed.org>', // sender address
+        to: "skolly150@gmail.com, info@faithbreed.org", // list of receivers
         subject: "Hello ✔", // Subject line
         text: "Hello world?", // plain text body
         html: output // html body 

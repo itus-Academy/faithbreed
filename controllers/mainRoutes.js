@@ -99,7 +99,15 @@ router.get('/contact', (req,res)=>{
    
 })
 
-router.get('/firsttime', (req,res)=>{
+router.post('newLife', (req,res)=>{
+    res.redirect('/newlife')
+})
+router.post('firstTime', (req,res)=>{
+    res.redirect('/firstime')
+})
+
+
+router.get('/firstTime', (req,res)=>{
     sermon
         .find({})
         .sort({'sermonDate' : -1})

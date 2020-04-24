@@ -1,23 +1,23 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
-var crypto = require('crypto');
-var Schema = mongoose.Schema;
+// var mongoose = require('mongoose');
+// var bcrypt = require('bcrypt-nodejs');
+// var crypto = require('crypto');
+// var Schema = mongoose.Schema;
 
-var SermonSchema = new Schema({
+// var SermonSchema = new Schema({
    
-    sermonTitle : String ,
+//     sermonTitle : String ,
 
-    sermonTeacher : String,
+//     sermonTeacher : String,
 
-    sermonContent : String,
+//     sermonContent : String,
 
-    sermonDate : Date,
+//     sermonDate : Date,
 
-    sermonPrice : Number,
+//     sermonPrice : Number,
 
-    sermonImage: String,
+//     sermonImage: String,
 
-    sermonAudio : String
-})
+//     sermonAudio : String
+// })
 
-module.exports = mongoose.model('sermon', SermonSchema);
+// module.exports = mongoose.model('sermon', SermonSchema);
