@@ -1,19 +1,52 @@
 var express = require('express');
 var router = express.Router();
-var nodemailer = require('nodemailer')
+var nodemailer = require('nodemailer');
+
+
+
 router.post('/', (req,res)=>{
-    console.log(req.body.contactName)
+    // console.log(req.body.contactName)
+    // res.send('i can go anywhere');
 
     const output = `
-        <p> You have a new contact request </p>
-        <h3>Contact Details</h3>
-        <ul>
-            <li>Name:  ${ req.body.contactName}  </li>
-            <li>Email:   ${req.body.contactEmail} </li>
-            <li>phone:   ${req.body.contactNumber } </li>
-            <li>Message:  ${ req.body.contactMessage} </li>
+        <p> Hello Faithbreed Admin, you have just received a form input from a new member who just got a NEW LIFE </p>
+        <h3>The table below shows the contact details</h3>
+        
+        <table border ="1" cell-padding="2" >
+            <tr>
+                <td>Date:<td>
+                <td>${ req.body.date}<td>
+            </tr>
+             <tr>
+                <td>Full Name:<td>
+                <td>${ req.body.fullname}<td>
+            </tr>
+             <tr>
+                <td>Gender:<td>
+                <td>${ req.body.gender}<td>
+            </tr>
+            <tr>
+                <td>BirthDate:<td>
+                <td>${ req.body.birthdate}<td>
+            </tr>
+            <tr>
+                <td>Phone Number:<td>
+                <td>${ req.body.phone}<td>
+            </tr>
+            <tr>
+                <td>Email:<td>
+                <td>${ req.body.email}<td>
+            </tr>
+            <tr>
+                <td>Which Applies to you:<td>
+                <td>${ req.body.exampleRadios}<td>
+            </tr>
+            <tr>
+                <td>Where did you pray the salvation Prayer:<td>
+                <td>${ req.body.exampleRadiosi}<td>
+            </tr>
+        </table>
 
-        </ul>
     `;
 
     let transporter = nodemailer.createTransport({
@@ -35,7 +68,7 @@ router.post('/', (req,res)=>{
            
         from: '"Faithbreed.org 👻" <info@faithbreed.org>', // sender address
         to: "skolly150@gmail.com, info@faithbreed.org,faithbreed.cc@gmail.com", // list of receivers
-        subject: "FEEDBACK MESSAGES (Contact Us)  ✔", // Subject line
+        subject: "NEW LIFE FEEDBACK FORM ✔", // Subject line
         text: "Hello world?", // plain text body
         html: output // html body 
       });
@@ -47,7 +80,7 @@ router.post('/', (req,res)=>{
         }
         console.log('Message %s sent: %s', info.messageId, info.response);
         console.log("Message sent: %s", info.messageId);
-        res.redirect('/contact')
+        res.redirect('/newlife')
     });
     
       

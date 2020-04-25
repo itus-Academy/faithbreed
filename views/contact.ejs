@@ -287,47 +287,44 @@
                     </button>
                     </div>
                     <div class="modal-body">
-                        <form action="/firstTime" method="post">
-
-                           
-                           
+                        <form action="/firstTimers" method="post">
 
                             <div class="form-group">
                               <label for="exampleInputEmail1">Name</label>
-                              <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Full Name">
+                              <input type="text" name="fullname" required style="font-size:13px;color:grey" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Full Name">
                               <small id="name" class="form-text text-muted">We'll never share your information with anyone else.</small>
                             </div>
-
+    
                             <div class="form-group">
                               <label for="exampleInputPassword1">Birthdate</label>
-                              <input type="text" name="birthdate" class="form-control" id="exampleInputPassword1" placeholder="Birthdate">
+                              <input type="text" name="birthdate" required style="font-size:13px;color:grey" class="form-control" id="exampleInputPassword1" placeholder="Birthdate">
                             </div>
-
+    
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Gender</label>
-                                <select class="form-control">
-                                    <option></option>
-                                    <option>Male</option>
-                                    <option>Female</option>
+                                <select class="form-control" required style="font-size:13px;color:grey" name="gender">
+                                    <option value="">Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
                                 </select>
                             </div>
-
+    
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Email</label>
-                                <input type="email" name="name" class="form-control" id="exampleInputPassword1" placeholder="Email Address">
+                                <input type="email" name="email" required style="font-size:13px;color:grey" class="form-control" id="exampleInputPassword1" placeholder="Email Address">
                             </div>
                            
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Phone</label>
-                                <input type="text" name="phone" class="form-control" id="exampleInputPassword1" placeholder="Phone">
+                                <input type="text" name="phone" required style="font-size:13px;color:grey" class="form-control" id="exampleInputPassword1" placeholder="Phone">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Country</label>
-                                <input type="text" name="country" class="form-control" id="exampleInputPassword1" placeholder="Country">
+                                <input type="text" name="country" required style="font-size:13px;color:grey" class="form-control" id="exampleInputPassword1" placeholder="Country">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">State</label>
-                                <input type="text" name="state" class="form-control" id="exampleInputPassword1" placeholder="State">
+                                <input type="text" name="state" required style="font-size:13px;color:grey" class="form-control" id="exampleInputPassword1" placeholder="State">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1"><b>What platform are you joining us from?</b></label>
@@ -344,7 +341,7 @@
                                     </label>
                                   </div>
                             </div>
-
+    
                             <div class="form-group">
                                 <label for="exampleInputPassword1"><b>Preferred Method of contact</b></label>
                                 <div class="form-check">
@@ -366,11 +363,11 @@
                                     </label>
                                   </div>
                             </div>
-
+    
                 
-
+    
                            <div class="form-group">
- 
+    
                               <div class=" form-check form-check">
                                 <label style="position:relative;left:-20px;" ><b>How can we Help you?</b> </label><br>
                                 <input class="form-check-input" name="questions" type="checkbox" id="inlineCheckbox1" value="guest">
@@ -396,7 +393,7 @@
                            </div>
                              
                             <button type="submit" class="btn btn-primary">Submit</button>
-
+    
                             <p style="text-align:center;font-size:13px">
                                 <br>
                                 Every information received here remains confidential and is held in trust by PNEUMALIFE CITY CHURCCH
@@ -423,7 +420,7 @@
                     </button>
                     </div>
                     <div class="modal-body">
-                        <form action="/newLife" method="post">
+                        <form action="/newlifeFeed" method="post">
 
                        
                        
@@ -445,19 +442,19 @@
     
                             <div class="form-group">
                               <label for="exampleInputEmail1">Date</label>
-                              <input type="date" name="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Date">
+                              <input type="date" name="date" class="form-control" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Date"  style="font-size:13px;color:grey" >
                               <small  class="form-text text-muted">We'll never share your information with anyone else.</small>
                             </div>
     
                             <div class="form-group">
                               <label for="exampleInputPassword1">Name</label>
-                              <input type="text" name="name" class="form-control" id="exampleInputPassword1" placeholder="Name">
+                              <input type="text" name="fullname" class="form-control"  required style="font-size:13px;color:grey" id="exampleInputPassword1" placeholder="Name">
                             </div>
     
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Gender</label>
-                                <select class="form-control">
-                                    <option></option>
+                                <select class="form-control" name="gender" required style="font-size:13px;color:grey" >
+                                    <option value="">Gender</option>
                                     <option value="male">Male</option>
                                     <option value="female" >Female</option>
                                 </select>
@@ -465,22 +462,22 @@
     
                             <div class="form-group">
                                 <label for="exampleInputPassword1">BirthDate</label>
-                                <input type="text" name="birthdate" class="form-control" id="exampleInputPassword1" placeholder="BirthDate">
+                                <input type="text" name="birthdate" class="form-control" required style="font-size:13px;color:grey" id="exampleInputPassword1" placeholder="BirthDate">
                             </div>
                            
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Phone</label>
-                                <input type="text" name="phone" class="form-control" id="exampleInputPassword1" placeholder="Phone">
+                                <input type="text" name="phone" style="font-size:13px;color:grey" required class="form-control" id="exampleInputPassword1" placeholder="Phone">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Email</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputPassword1" placeholder="email">
+                                <input type="email" name="email" style="font-size:13px;color:grey" required class="form-control" id="exampleInputPassword1" placeholder="email">
                             </div>
                            
                             <div class="form-group">
                                 <label for="exampleInputPassword1"><b>Please Select which applies to you</b></label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios"  value="salvation" checked>
+                                    <input class="form-check-input" type="radio"  name="exampleRadios"  value="salvation" checked>
                                     <label class="form-check-label" for="exampleRadios1">
                                       Salvation 
                                     </label>
@@ -516,8 +513,7 @@
                             </div>
     
                             <p style="text-align:center;font-size:13px">
-                                <br>
-                                Every information received here remains confidential and is held in trust by PNEUMALIFE CITY CHURCCH
+                                Every information received here remains confidential and is held in trust by PNEUMALIFE CITY CHURCH.
                             </p>
     
                 
@@ -526,6 +522,7 @@
                              
                             <button type="submit" class="btn btn-primary">Submit</button>
                           </form>
+    
 
 
                     </div>

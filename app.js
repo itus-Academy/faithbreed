@@ -71,6 +71,12 @@ app.use('/', updatePostRoute);
 var nodemailer = require('./controllers/nodemailer.js');
 app.use('/nodemailer', nodemailer);
 
+var newlifeFeed = require('./controllers/newlife.js');
+app.use('/newlifeFeed', newlifeFeed);
+
+var firstTimers = require('./controllers/firstTimer.js');
+app.use('/firstTimers', firstTimers);
+
 
 var blogRoute = require('./controllers/blogRoute.js');
 app.use('/blog', blogRoute);
