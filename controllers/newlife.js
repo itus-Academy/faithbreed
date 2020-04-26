@@ -1,12 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
-
+var Newlife = require('../model/newlife.js')
 
 
 router.post('/', (req,res)=>{
     // console.log(req.body.contactName)
     // res.send('i can go anywhere');
+
+    
+
 
     const output = `
         <p> Hello Faithbreed Admin, you have just received a form input from a new member who just got a NEW LIFE </p>
@@ -80,7 +83,32 @@ router.post('/', (req,res)=>{
         }
         console.log('Message %s sent: %s', info.messageId, info.response);
         console.log("Message sent: %s", info.messageId);
-        res.redirect('/newlife')
+       
+    });
+
+    const newlife = new Newlife({
+        date : req.body.date,
+
+        name : req.body.fullname,
+
+        gender : req.body.gender,
+
+        birthDate : req.body.birthDate,
+
+        phone : req.body.phone,
+
+        email : req.body.email,
+
+        application : req.body.exampleRadios,
+
+        prayerChannel : req.body.exampleRadiosi
+    }).save((err,newlife)=>{
+        if(err){
+            console.log('error')
+        }else{
+            res.redirect('/newlife')
+        }
+
     });
     
       

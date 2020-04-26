@@ -1,10 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
+var FirstTimer = require('../model/firstTimer.js')
 
 router.post('/', (req,res)=>{
     // console.log(req.body.contactName)
     // res.send('i can go anywhere');
+
+   
+
 
     const output = `
         <p> Hello Faithbreed Admin, you have just received a form input from a FIRST TIMER </p>
@@ -82,9 +86,38 @@ router.post('/', (req,res)=>{
         }
         console.log('Message %s sent: %s', info.messageId, info.response);
         console.log("Message sent: %s", info.messageId);
-        res.redirect('/firsttime')
+        // res.redirect('/firsttime')
     });
     
+
+
+
+
+    const firstTimer = new FirstTimer({
+        name : req.body.fullname,
+
+        birthDate : req.body.birthDate,
+
+        gender : req.body.gender,
+
+        email : req.body.email,
+
+        phone : req.body.phone,
+
+        state : req.body.state,
+
+        platform : req.body.exampleRadios,
+
+        methodOfContact : req.body.exampleRadiosi,
+
+        help : req.body.questions,
+    }).save((err,firstTimer)=>{
+        if(err){
+            res.send(err);
+        }else{
+            res.redirect('/firsttime');
+        }
+    })
       
 
 
