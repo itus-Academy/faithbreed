@@ -175,12 +175,12 @@
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Blog</li>
                             
-                           <% if( blog.length == 0 ){ %>
+                           <% if( devotional.length == 0 ){ %>
 
                               
 
                             <% }else{ %>
-                                <li class="breadcrumb-item active" aria-current="page"><%= blog[0].blogCategory %></li>
+                                <li class="breadcrumb-item active" aria-current="page"><%= devotional[0].blogCategory %></li>
                                 <% } %>
                            
                         </ol>
@@ -200,7 +200,7 @@
         <div class="container">
             
             <div class="row justify-content-between">
-                <% if(blog.length == 0 ) { %>
+                <% if(devotional.length == 0 ) { %>
                     <div class="jumbotron " style="background-color:white" >
                         <div class="row">
                         <div class="col-sm-12">
@@ -215,29 +215,29 @@
                     <div class="row"  id="">
 
                         <!-- Single Blog Post Area -->
-                        <!-- <%= blog %> -->
+                       
                        
 
-                        <% if ( blog.length > 0  ) { %>
-                            <% for (var i = 0; i< blog.length; i++) { %>
+                        <% if ( devotional.length > 0  ) { %>
+                            <% for (var i = 0; i< devotional.length; i++) { %>
                                 <div class="col-12 col-md-6 " style="margin-bottom:30px">
                                     <div class="single-blog-post mb-50">
                                         <div class="post-thumbnail">
-                                            <a href="/blog/blogpost/<%= blog[i].id %>"><img src="<%= blog[i].blogImage.slice(8) %>" alt=""></a>
+                                            <p><img src="<%= devotional[i].devotionalImage.slice(8) %>" alt=""></p>
                                         </div>
                                         <div class="post-content">
-                                            <a href="/blog/blogpost/<%= blog[i].id %>" class="post-title">
-                                                <h4><%= blog[i].blogTitle %></h4>
-                                            </a>
+                                            <p class="post-title">
+                                                <h4><%= devotional[i].devotionalTitle %></h4>
+                                            </p>
                                             <div class="post-meta d-flex">
-                                                <a href="#" style="font-size:12px;"> <i class="fa fa-user" aria-hidden="true"></i> <%= blog[i].blogAuthor %></a>
-                                                <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> <%= blog[i].blogDate.toString().slice(0,16) %></a>
+                                                <a href="#" style="font-size:12px;"> <i class="fa fa-user" aria-hidden="true"></i> <%= devotional[i].devotionalAuthor %></a>
+                                                <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> <%= devotional[i].devotionalDate.toString().slice(0,16) %></a>
                                             </div>
-                                            <p class="post-excerpt" style="text-align: justify;"><%= blog[i].blogExcerpt.slice(0,200) %></p>
+                                            <p class="post-excerpt" style="text-align: justify;"><%= devotional[i].devotionalExcerpt.slice(0,200) %></p>
                                         </div>
                                     </div>
                                     <div class="" style="margin-top:-40px;">
-                                        <a href="/blog/blogpost/<%= blog[i].id %>" class="float-right btn btn-default" style="background-color:#CA3730;font-size:12px" >Read More </a>
+                                        <a href="<%= devotional[i].devotionalFile.slice(8) %>" download class="float-right btn btn-default" style="background-color:#CA3730;font-size:12px" >Download <i class="fa fa-download" aria-hidden="true"></i> </a>
                                     </div><br><br>
                                 </div>
                             <% } %>

@@ -6,6 +6,57 @@ const fs = require('fs');
 const path = require('path');
 const blog = require('../model/blog.js');
 const blog2 = require('../model/blog.js');
+const sermon = require('../model/sermon.js');
+const Devotional = require('../model/devotional.js');
+
+
+
+const storage2 = multer.diskStorage({
+    
+    destination: './public/uploads/blog/devotional',
+    filename:function(req,file, cb){
+        cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname)  );
+    }
+})
+
+const upload2 = multer({
+    storage : storage2
+}).fields([
+    {name: 'devotionalImage'},
+    {name: 'devotionalFile'},
+
+]
+    
+)
+
+router.post('/devotional', (req,res)=>{
+     
+    upload2(req,res,(err)=>{
+        if(err){
+            res.send(err);
+        }else{
+            console.log(req.files.devotionalImage[0].destination);
+            console.log("the form is " + req.body.devotionalImage);
+           
+
+            const devotional = new Devotional({
+                devotionalTitle: req.body.devotionalTitle,
+                devotionalAuthor : req.body.devotionalAuthor,
+                devotionalDate : req.body.devotionalDate,
+                devotionalExcerpt : req.body.devotionalExcerpt,
+                devotionalImage: req.files.devotionalImage[0].destination + '/' +  req.files.devotionalImage[0].filename ,
+                devotionalFile : req.files.devotionalFile[0].destination + '/' +  req.files.devotionalFile[0].filename
+            }).save((err,devotional)=>{
+                if(err) return console.error(err);
+                console.log('very good')
+                res.redirect('/admin/posts')
+            });
+        }
+    })
+    
+
+
+})
 
 
 const storage = multer.diskStorage({
@@ -86,29 +137,33 @@ blog
     })
 } );
 
-router.get('/supernatural', (req,res,next)=>{
-    const pagination = req.query.pagination
-    ? parsesInt(req.query.pagination)
-    : 4; 
-    const page = req.query.page ? parseInt(req.query.page):1
+
+router.get('/supernatural', (req,res)=>{
+    // res.send('we are ere');
     blog
         .find({ blogCategory : 'supernatural' })
-        .limit(pagination)
         .sort({'_id' : -1 })
         .exec((err, blogger)=>{
-            sermon
-                .find({})
-                .sort
-            console.log(blogger);
             if(err){
-                console.log(err)
+                res.send(err)
             }else{
-                res.render('categories',{
-                    title : 'Supernatural',
-                    blog  : blogger
-                } )
+                sermon
+                .find({})
+                .sort({'sermonDate' : -1})
+                .exec((err,sermons)=>{
+                  
+                    if(err){
+                       res.send(err);
+                    }else{
+                        res.render('categories',{
+                            title : 'Supernatural',
+                            blog  : blogger,
+                            sermons:sermons
+                        } )
+                    }
+                })
             }
-        })
+})
 })
 
 router.post('/blogUpdates/:id', (req,res)=>{
@@ -164,15 +219,22 @@ router.get('/leadership', (req,res,next)=>{
         .limit(pagination)
         .sort({'_id' : -1 })
         .exec((err, blogger)=>{
-            console.log(blogger);
+            sermon
+                .find({})
+                .sort({'sermonDate' : -1})
+                .exec((err,sermons)=>{
+                       
             if(err){
                 console.log(err)
             }else{
                 res.render('categories',{
                     title : 'Leadership',
-                    blog  : blogger
+                    blog  : blogger,
+                    sermons:sermons
                 } )
             }
+                })
+        
         })
 })
 
@@ -186,13 +248,48 @@ router.get('/growth', (req,res,next)=>{
             if(err){
                 console.log(err)
             }else{
-                res.render('categories',{
-                    title : 'Growth',
-                    blog  : blogger
-                } )
+
+                sermon
+                    .find({})
+                    .sort({'sermonDate' : -1})
+                    .exec((err, sermons)=>{
+                        res.render('categories',{
+                            title : 'Growth',
+                            blog  : blogger,
+                            sermons:sermons
+                        } )
+                    })
+              
             }
         })
 })
+
+router.get('/devotional', (req,res)=>{
+    sermon
+        .find({})
+        .sort({'sermonDate' : -1})
+        .exec((err,sermons)=>{
+            if(err){
+                console.log(err)
+            }else{
+                Devotional
+                        .find({})
+                        .sort({'devotionalDate':-1})
+                        .exec((err,devotionals)=>{
+                            res.render('devotional',{
+                                title : 'Devotional',
+                                sermons:sermons,
+                                devotional:devotionals
+                            })
+                        })
+            }
+
+          
+        })
+   
+})
+
+
 // router.get('blogpost/leadership', (req,res,next)=>{
 //     blog.find({categories : req.params.cat})
 //     .exec((err,bloggers)=>{
