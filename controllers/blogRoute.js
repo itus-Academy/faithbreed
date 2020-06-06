@@ -168,6 +168,7 @@ router.get('/supernatural', (req,res)=>{
 
 router.post('/blogUpdates/:id', (req,res)=>{
     
+    
     console.log("I am"  + req.body.blogTitle)
     console.log(req.params.id)
     let items = {}

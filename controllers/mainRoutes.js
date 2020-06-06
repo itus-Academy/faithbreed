@@ -137,29 +137,63 @@ router.get('/newlife', (req,res)=>{
 
 router.get('/store', (req,res)=>{
 
-    const pagination = req.query.pagination
+    var pagination = req.query.pagination
     ? parsesInt(req.query.pagination)
-    : 20; 
-    const page = req.query.page ? parseInt(req.query.page):1
-
+    : 18; 
+    var page = req.query.page ? parseInt(req.query.page):1
+   
     sermon
         .find({})
         .skip((page - 1) * pagination)
-        .limit(pagination)
         .sort({'sermonDate' : -1})
-        .exec(function(err,sermons){
-            if(err){
-                console.log(err);
-            }else{
-                res.render('store', {
-                    title: 'Store',
-                    sermons: sermons
-                })
-            }
+        .limit(pagination)
+        .exec((err,sermons)=>{
+            sermon.count().exec((err,count)=>{
+                if(err){
+                    res.render('/');
+                }else{
+                    res.render('store', {
+                        title: 'Store',
+                        sermons: sermons,
+                        current:page,
+                        pages:Math.ceil(count / pagination)
+                    })
+                }
+            })
+         
         })
 
     
 });
+router.get('/sermon/:page', (req,res)=>{
+    var perPage = 18;
+    var page = req.params.page || 1
+
+    sermon
+        .find({})
+        .skip((perPage * page)-perPage)
+        .limit(perPage)
+        .sort({'sermonDate' : -1})
+        .exec(function(err,sermons){
+            sermon.count().exec((err,count)=>{
+                if(err){
+                    res.send(err)
+    
+                }else{
+                    res.render('paginated', {
+                        title: 'Store',
+                        sermons: sermons,
+                        current:page,
+                        pages:Math.ceil(count /perPage)
+                    })
+                    // res.json(
+                    //     sermons
+                    // )
+                }        
+            })
+               
+        })
+})
 
 
 

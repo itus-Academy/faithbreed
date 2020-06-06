@@ -884,6 +884,11 @@
                     
                     <div class="col-12">
                         <div class="upcoming-slides owl-carousel">
+                           <% if(events.length == 0){ %>
+
+                                <h4 style="text-align:center" >No Upcoming Event yet</h4> 
+
+                            <% }else { %>
                             <% for(var i=0; i < 1 ; i++ ) { %>
                             <div class="single-slide">
                             
@@ -914,7 +919,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <% } %>
+                            <% } }%>
+
                         </div>
                     </div>
                 </div>

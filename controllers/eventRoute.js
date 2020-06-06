@@ -38,7 +38,7 @@ router.post('/eventPost', (req,res,next)=>{
             console.log(req.files.eventImage[0].destination);
             console.log("the form is " + req.body.eventName);
             console.log(req.files)
-            res.redirect('/admin/adminEvent')
+           
 
 
             const Event = new event({
@@ -51,6 +51,7 @@ router.post('/eventPost', (req,res,next)=>{
             }).save((err,event)=>{
                 if(err) return console.error(err);
                 console.log('very good')
+                res.redirect('/admin/adminEvent')
             });
         }
     })
