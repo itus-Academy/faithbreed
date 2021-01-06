@@ -9,7 +9,7 @@
   "author": "kolawole oluwasegun",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcrypt-nodejs": "0.0.3",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.4",
